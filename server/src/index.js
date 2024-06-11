@@ -1,8 +1,14 @@
 import express from 'express';
 import { readFile } from 'fs/promises'; // Importing 'readFile' function from 'fs/promises' module
-import mongoose from './mongo.js'; // Assuming 'mongo.js' exports the mongoose connection
+import mongoose from './mongo.js'; 
 import cors from 'cors';
-import deviceRoutes from './deviceRoutes.js'; // Assuming 'deviceRoutes.js' exports the router
+import deviceRoutes from './deviceRoutes.js';
+import authRoutes from './authRoutes.js'; // Import authRoutes
+import dotenv from 'dotenv';
+dotenv.config();
+
+
+
 const app = express();
 const port = 5000;
 
@@ -14,11 +20,11 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 })); 
 
+process.env.JWT_SECRET = 'MySuperSecretKeyForJWTTokenGeneration123!@#'
+
 // Routes
 app.use('/devices', deviceRoutes);
-
-// Refresh logic
-  
+app.use('/auth', authRoutes); // Mount authRoutes under /auth URL prefix
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -26,9 +32,10 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-/*app.length((req, res) => {
-res.render("Welcome to the backend.")
-});*/
+// 404 Not Found handler
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
 // Server
 app.listen(port, () => {
