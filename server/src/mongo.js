@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const connect = mongoose.connect('mongodb://localhost:27017/Devices');
+const connect = mongoose.connect('mongodb+srv://danray472:dseProject@dseproject.csx9lbj.mongodb.net/DseProject?retryWrites=true&w=majority');
 
 connect.then(() => {
     console.log("Database connected successfully!!")
