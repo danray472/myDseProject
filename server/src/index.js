@@ -15,7 +15,7 @@ const port = 5000;
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://dseproject-client-1.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type'],
 })); 
