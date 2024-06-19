@@ -1,17 +1,17 @@
 import express from 'express';
 import { readFile } from 'fs/promises'; // Importing 'readFile' function from 'fs/promises' module
-import mongoose from './mongo.js'; 
+import mongoose from './mongo.js';
 import cors from 'cors';
 import deviceRoutes from './deviceRoutes.js';
 import authRoutes from './authRoutes.js'; // Import authRoutes
+import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
-
-
 const app = express();
-const port = 5000;
- 
+const port = process.env.PORT || 5000; // Use environment variable for port
+
 // Middleware
 app.use(express.json());
 app.use(cors({
@@ -20,11 +20,22 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 })); 
 
-process.env.JWT_SECRET = 'MySuperSecretKeyForJWTTokenGeneration123!@#'
+// Ensure JWT_SECRET is set via environment variable in production
+if (!process.env.JWT_SECRET) {
+  process.env.JWT_SECRET = 'MySuperSecretKeyForJWTTokenGeneration123!@#';
+}
 
-// Routes
+// Serve static files from the React app
+app.use(express.static(path.join(path.resolve(), 'build')));
+
+// API Routes
 app.use('/devices', deviceRoutes);
 app.use('/auth', authRoutes); // Mount authRoutes under /auth URL prefix
+
+// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(path.resolve(), 'build', 'index.html'));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
