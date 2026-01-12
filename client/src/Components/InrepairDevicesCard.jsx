@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import SingleDeviceCard from './SingleDeviceCard'; // Import the DeviceCard component
 import './cards.css';
 import Spinner from './Spinner';
@@ -12,7 +12,7 @@ const InRepairDeviceCard = ({searchTerm}) => {
   useEffect(() => {
     const fetchInRepairDevices = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/devices/In-repair'); // Update the endpoint to fetch completed devices
+        const response = await api.get('/devices/In-repair'); // Update the endpoint to fetch completed devices
         setInRepair(response.data);
         setLoading(false);
       } catch (error) {

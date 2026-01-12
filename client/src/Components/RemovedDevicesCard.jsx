@@ -1,6 +1,6 @@
 // RemovedDevicesCard.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import './cards.css';
 import Spinner from './Spinner';
 import SingleDeviceCardDelete from './SingleDeviceCardDelete';
@@ -15,7 +15,7 @@ const RemovedDevicesCard = ({ searchTerm }) => {
   useEffect(() => {
     const fetchRemovedDevices = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/devices/Trash');
+        const response = await api.get('/devices/Trash');
         setTrash(response.data);
         setLoading(false);
       } catch (error) {
@@ -29,7 +29,7 @@ const RemovedDevicesCard = ({ searchTerm }) => {
   const handleDelete = async (deviceId) => {
     try {
       // Send DELETE request to backend API to delete the device
-      await axios.delete(`http://localhost:5000/devices/${deviceId}`);
+      await api.delete(`/devices/${deviceId}`);
       console.log('Device deleted successfully:', deviceId);
       enqueueSnackbar('Device deleted successfully', { variant: 'success' });
       // Update the state to remove the deleted device from the list

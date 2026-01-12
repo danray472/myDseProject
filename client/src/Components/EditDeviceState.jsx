@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useSnackbar } from 'notistack';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './EditDeviceState.css'
@@ -22,7 +22,7 @@ const EditDevice = ({ device, onClose }) => {
   const handleEditDevice = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.patch(`http://localhost:5000/devices/${device._id}`, editedDevice)
+    api.patch(`/devices/${device._id}`, editedDevice)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Device status updated successfully', { variant: 'success' });

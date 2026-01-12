@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import SingleDeviceCard from './SingleDeviceCard'; // Import the SingleDeviceCard component
 import './cards.css';
 import Spinner from './Spinner'; // Import the Spinner component
@@ -12,7 +12,7 @@ const DeviceList = ({ searchTerm }) => {
   useEffect(() => {
     const fetchDevices = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/devices');
+        const response = await api.get('/devices');
         setDevices(response.data);
         setLoading(false); // Set loading state to false after fetching data
       } catch (error) {
