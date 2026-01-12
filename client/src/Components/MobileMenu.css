@@ -1,0 +1,59 @@
+/* MobileMenu.css */
+
+.mobile-menu {
+  display: none; /* Hide the menu by default */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #fff;
+  size-adjust: large;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 18px;
+}
+
+.mobile-menu:hover {
+  background-color: #d2ebea;
+}
+
+.mobile-menu .menu-body ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mobile-menu .menu-link {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  transition: background-color 0.3s;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+}
+
+.mobile-menu .menu-link:hover {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .mobile-menu {
+    display: block; /* Show the menu on smaller screens */
+  }
+}
+
+/* MobileMenu.css */
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px; /* Increase the font size */
+  transition: font-size 0.3s, margin-right 0.3s; /* Add transition for smooth scaling and position change */
+}
+
+.close-icon:hover {
+  font-size: 28px; /* Increase font size on hover */
+  margin-right: 5px; /* Move the icon slightly to the right on hover */
+}
+

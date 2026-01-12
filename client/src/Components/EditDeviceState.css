@@ -1,0 +1,55 @@
+
+
+.select{
+    font-size: large;
+    border-radius: 8px;
+    
+}
+
+.select:hover{
+    cursor: pointer;
+}
+
+
+.divide{
+    padding: 10%;
+}
+
+.header{
+ text-align: center;
+}
+
+label{
+    margin: auto;
+}
+
+.button{
+    font-size: large;
+    padding: 4px;
+    margin: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.button:hover{
+    background-color: aqua;
+    box-shadow: 0 4px 6px rgba(138, 230, 244, 0.5);
+}
+
+.back-button{
+    padding: 15px;
+    padding-top: 10px;
+    transition: transform 0.2sec ease-in-out
+}
+
+.back-button:hover{
+    background-color: none;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+
+
+
+

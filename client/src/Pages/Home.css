@@ -1,0 +1,248 @@
+/* Home.css */
+
+.head{
+  text-align: center;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  width: 0 0;
+
+}
+
+/* Styles for the container */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-bottom: '';
+  height: 60px;
+  background-color: #2a9d8f;
+  border-radius: 15px 15px 35px 35px;
+  
+}
+
+
+
+/* Styles for the search bar */
+.search-bar {
+  position: relative; /* Ensure the parent container is positioned relative */
+  display: flex;
+  align-items: center;
+  width: '';
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.search-bar input[type="text"]:hover {
+  border-color: deeppink; /* Change border color on hover */
+}
+
+.search-bar input[type="text"] {
+  padding: 6px;
+  border: 1px solid #151716;
+  border-radius: 50px;
+  outline: none;
+  position: relative; /* Ensure the input field is positioned relative */
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center the icon vertically */
+  right: 10px; /* Adjust the distance from the right edge */
+  cursor: pointer;
+}
+
+.search-icon svg {
+  font-size: 16px; /* Adjust icon size as needed */
+}
+
+
+.desktop {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  align-items: 'center';
+  flex-wrap: wrap;
+}
+
+.desktop li {
+  margin: '';
+  display: '';
+  align-items: '';
+  justify-content: block;
+}
+
+.desktop-link {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+.desktop-link.current {
+  background-color:#ed0c8f; /* Change background color for current link */
+}
+
+.desktop-link:hover {
+  color: #f0f4f7;
+  text-decoration: '';
+  background-color: deeppink;
+  padding: 8px;
+  border-radius: 20px;
+  transition: box-shadow 0.5s, border-color 0.8s, transform 1s;
+}
+
+/* Media query for smaller desktop screens */
+@media screen and (max-width: 1200px) {
+  .desktop {
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+  }
+
+  .desktop li {
+    margin: 5px 20px; /* Adjust margin for smaller screens */
+  }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  /* Hide the logo on mobile */
+  .setlogo {
+    display: none;
+  }
+
+  /* Hide the back arrow on mobile */
+  .back-arrow {
+    display: non;
+  }
+
+  /* Center the search bar */
+  .search-bar {
+    justify-content: center;
+  }
+
+  /* Adjust search bar size for mobile */
+  .search-bar input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+    width: 50%;
+  }
+
+
+}
+
+
+/* Styles for the logo */
+.setlogo {
+  margin: ''; /* Adjust margin as needed */
+}
+
+/* Styles for the desktop navigation links */
+.desktop {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.desktop li {
+  margin: 5px 20px; /* Adjust margin as needed */
+}
+
+.desktop-link {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.desktop-link:hover {
+  color: #f7faf7;
+  text-decoration: '';
+}
+
+.company-name-container {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.registered-symbol {
+  font-size: 0.8em; /* Adjust the font size as needed */
+  margin-left: 2px; /* Adjust the spacing between the company name and the symbol */
+}
+
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  /* Hide the logo on mobile */
+  .setlogo {
+    display: none;
+  }
+
+  /* Hide the desktop navigation links on mobile */
+  .desktop {
+    display: none;
+  }
+
+  /* Center the search bar */
+  .search-bar {
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  /* Adjust search bar size for mobile */
+  .search-bar input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+    width: 80%;
+  }
+}
+
+.edit-button{
+  font-size: large;
+  border-radius: 12px;
+  border: solid black 1px;
+}
+.edit-button:hover{
+  background-color: aqua;
+  cursor: pointer;
+  box-shadow: #457b9d;
+}
+
+@media  screen and (max-width: 768px) {
+  .edit-button{
+    font-size: x-small;
+    
+  }
+  
+}
+
+
+.header-mobile {
+  display: none; /* Hide the header by default */
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .header-mobile {
+    display: block; /* Show the header on mobile devices */
+    text-align: center; /* Center the header text */
+    padding: 10px; /* Add padding for better visibility */
+    color: #151716;
+  }
+}
+
+@media  screen and (min-width: 768px) {
+  .registered-symbol{
+    display: none;
+  }
+}
+
+.header-link{
+  color: black;
+  text-decoration: none;
+}
+
+
+

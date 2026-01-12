@@ -1,0 +1,105 @@
+/* Footer.css */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 3px 0; /* Adjust padding as needed */
+    height: min-content; /* Set height to fit content */
+    position: fixed; /* Make the footer fixed */
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Make it span the full width of the viewport */
+}
+
+.container-footer {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically */
+}
+
+.footer-section {
+    display: flex; /* Make each section a flex container */
+    align-items: center; /* Align items vertically */
+}
+
+.about h2 {
+    margin: 0; /* Remove margin for heading */
+    font-size: 13px; /* Adjust font size as needed */
+}
+
+.about p {
+    margin: 0; /* Remove margin for paragraph */
+    font-size: 10px; /* Adjust font size as needed */
+}
+
+.socials a {
+    margin-right: 4px; /* Adjust margin between icons */
+    font-size: 10px; /* Adjust font size as needed */
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove margin for list */
+}
+
+.links li {
+    margin-right: 5px; /* Adjust margin between links */
+}
+
+.contact {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.contact span {
+    margin-right: 5px; /* Adjust margin between icon and text */
+}
+
+.contact i {
+    margin-right: 3px; /* Adjust margin between icon and text */
+}
+
+.contact-btn {
+    padding: 2px 6px; /* Adjust padding as needed */
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px; /* Adjust font size as needed */
+}
+
+.footer-bottom {
+    text-align: center;
+    background-color: #444;
+    color: #ccc;
+    padding: 1px 0; /* Adjust padding as needed */
+}
+
+.link{
+    padding: ''
+}
+
+
+
+/* Hide footer on mobile */
+@media screen and (max-width: 768px) {
+    .footer {
+        display: none;
+        
+            display: none;
+            height: 0;
+            visibility: hidden;
+          
+          
+    }
+    
+}
+
+

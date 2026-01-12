@@ -1,0 +1,118 @@
+/* Card.css */
+
+/* Styles for the card */
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid deeppink;
+  border-radius: 20px; 
+  padding: 10px;
+  margin: 12px; 
+  transition: box-shadow 0.3s;
+  width: 200px;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(244, 138, 208, 0.5); 
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-color: #366e72; 
+  transition: box-shadow 0.3s ease; 
+}
+
+
+/* Container holding the cards */
+.card-container {
+  max-height: calc(92vh - 70px); /* Set maximum height to 80% of viewport height minus footer height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
+
+}
+
+.device-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 140px; 
+    height: max-content; 
+    font-size: 10px; 
+  }
+  .card-line{
+    width: auto;
+    height: auto;
+  }
+  .card-container{
+    max-height: 88vh;
+    overflow-y: auto;
+
+    
+  }
+
+}
+
+.card-line{
+  box-shadow: 0 8px 10px rgba(244, 138, 208, 0.8), 0 -5px 10px rgba(247, 245, 245, 0.3);
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.card-line {
+
+  /* Add transition for smooth effect */
+  transition: box-shadow 0.3s ease;
+
+  /* Set initial shadow (without border) */
+  box-shadow: 0 4px 5px rgba(244, 138, 208, 0.8), 0 4px 5px rgba(175, 20, 141, 0.8);
+}
+
+.card-line:hover {
+  /* Adjust shadow on hover */
+  box-shadow: 0 -4px 10px rgba(196, 53, 150, 0.8), 0 8px 10px rgba(227, 97, 171, 0.8); /* White shadow at the top, black shadow at the bottom */
+}
+
+
+
+
+/* Styles for the modal container */
+.modal-container {
+  position: 'fixed';
+  top: 50%; 
+  left: 50%; 
+  
+  z-index: 1000; 
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px; 
+  padding: ''; 
+  box-shadow: 0 4px 6px rgba(2, 2, 2, 0.5); 
+  height: auto;
+  
+}
+
+.device-state{
+  font-weight: 900;
+}
+
+.ticket-no{
+  font-weight: 1000;
+}
+
+.device-text{
+  font-weight: bold;
+}
+
+.edit-button-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-container:hover .delete-icon {
+  color: red;
+}
+
+
+

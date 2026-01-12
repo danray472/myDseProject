@@ -1,0 +1,67 @@
+/* WelcomePage.css */
+.welcome-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif; /* Use the Roboto font or any other modern font */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 8px 16px rgba(0, 0, 0, 0.2);
+    margin-left: 30vw;
+    margin-right: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .welcome-heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: deeppink; /* Use the deeppink color */
+  }
+  
+  .welcome-text {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333; /* Default text color */
+  }
+  
+  .next-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: deeppink; /* Use the deeppink color */
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    margin-bottom: 10px;
+  }
+  
+  .next-button:hover {
+    background-color: #3a7875; /* Lighter shade of deeppink on hover */
+  }
+  
+  .next-button::after {
+    content: "\2192"; /* Unicode for right arrow */
+    margin-left: 10px;
+  }
+  
+  /* Style the logo */
+  .welcome-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    margin-top: 20px; /* Adjust margin-top as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    
+  }
+
+  .warning-text{
+    color: red;
+    text-decoration: underline
+  }
+  

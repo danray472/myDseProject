@@ -1,0 +1,162 @@
+[
+  {
+    "ticketNumber": "NMO721ABEXMF1NIB",
+    "deviceType": "Tablet",
+    "customerName": "Todd Phillips",
+    "customerEmail": "eric67@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-09-10T13:01:40"
+  },
+  {
+    "ticketNumber": "M4SI5PLY2JG8JOA5",
+    "deviceType": "Laptop",
+    "customerName": "Christina Moore",
+    "customerEmail": "jamessweeney@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-12-21T17:03:32"
+  },
+  {
+    "ticketNumber": "U59NPIZPFGGJSUJ3",
+    "deviceType": "Tablet",
+    "customerName": "Joseph Johnson",
+    "customerEmail": "banksdeborah@example.net",
+    "deviceState": "In-repair",
+    "date": "2025-10-19T07:14:34"
+  },
+  {
+    "ticketNumber": "EQUMJYTDRVHTWI54",
+    "deviceType": "Tablet",
+    "customerName": "Alan Romero",
+    "customerEmail": "sean75@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-10-30T04:33:39"
+  },
+  {
+    "ticketNumber": "KEQ8PM4Q4YVAEOKR",
+    "deviceType": "Laptop",
+    "customerName": "Alexandra Murillo",
+    "customerEmail": "patricia97@example.net",
+    "deviceState": "In-repair",
+    "date": "2025-07-15T15:48:39"
+  },
+  {
+    "ticketNumber": "6VR7RT3L8APT0IY2",
+    "deviceType": "Tablet",
+    "customerName": "Erica Nelson",
+    "customerEmail": "christopherknight@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-01-13T16:35:27"
+  },
+  {
+    "ticketNumber": "G9SFUE3YK0G508CP",
+    "deviceType": "Smartphone",
+    "customerName": "Christopher Miller",
+    "customerEmail": "stevenshaffer@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-02-22T06:10:16"
+  },
+  {
+    "ticketNumber": "1TQ2VQIAHEDXJXLF",
+    "deviceType": "Smartphone",
+    "customerName": "Christopher Soto",
+    "customerEmail": "kurt68@example.com",
+    "deviceState": "In-repair",
+    "date": "2025-05-27T07:16:04"
+  },
+  {
+    "ticketNumber": "6OZW37FZXHEVMF0K",
+    "deviceType": "Tablet",
+    "customerName": "Brianna Duncan",
+    "customerEmail": "matthewmorris@example.org",
+    "deviceState": "In-repair",
+    "date": "2025-09-06T04:23:33"
+  },
+  {
+    "ticketNumber": "S4FLSO9ORV85QIPS",
+    "deviceType": "Laptop",
+    "customerName": "Donald Barber",
+    "customerEmail": "rebecca94@example.com",
+    "deviceState": "In-repair",
+    "date": "2025-12-23T00:47:45"
+  },
+  {
+    "ticketNumber": "ZIU0A6H0S9PI4KD1",
+    "deviceType": "Laptop",
+    "customerName": "Lisa Morris",
+    "customerEmail": "wyattmelissa@example.org",
+    "deviceState": "Completed",
+    "date": "2025-09-14T19:10:57"
+  },
+  {
+    "ticketNumber": "3M93N1ST468X9DIX",
+    "deviceType": "Smartphone",
+    "customerName": "Kristopher Tucker",
+    "customerEmail": "joshuasilva@example.net",
+    "deviceState": "Completed",
+    "date": "2025-07-05T18:32:57"
+  },
+  {
+    "ticketNumber": "MP066IDY1P6B62MH",
+    "deviceType": "Tablet",
+    "customerName": "Jason Mullen",
+    "customerEmail": "sarahsnyder@example.net",
+    "deviceState": "Completed",
+    "date": "2025-02-01T22:29:40"
+  },
+  {
+    "ticketNumber": "5SIIBG91SHE4KSUY",
+    "deviceType": "Laptop",
+    "customerName": "Dylan Parker",
+    "customerEmail": "larrykaiser@example.com",
+    "deviceState": "Completed",
+    "date": "2025-03-16T17:46:09"
+  },
+  {
+    "ticketNumber": "JZIV9QT4YT609NGH",
+    "deviceType": "Laptop",
+    "customerName": "Jennifer Williams",
+    "customerEmail": "smithjoseph@example.net",
+    "deviceState": "Completed",
+    "date": "2025-03-20T21:34:31"
+  },
+  {
+    "ticketNumber": "MQQX1R60DLSH2AJG",
+    "deviceType": "Tablet",
+    "customerName": "Tara Knox",
+    "customerEmail": "sanchezsteven@example.org",
+    "deviceState": "Received",
+    "date": "2025-07-29T00:42:56"
+  },
+  {
+    "ticketNumber": "G6H219M85D6UZ4H6",
+    "deviceType": "Laptop",
+    "customerName": "Donald Wolf",
+    "customerEmail": "bcontreras@example.net",
+    "deviceState": "Received",
+    "date": "2025-01-18T22:11:08"
+  },
+  {
+    "ticketNumber": "U0UA30GGTH0HIODZ",
+    "deviceType": "Laptop",
+    "customerName": "Jesse Bryant",
+    "customerEmail": "iwashington@example.org",
+    "deviceState": "Received",
+    "date": "2025-07-30T19:39:40"
+  },
+  {
+    "ticketNumber": "4P4RUTOPVIR6NJRF",
+    "deviceType": "Tablet",
+    "customerName": "Thomas Davis",
+    "customerEmail": "idavis@example.net",
+    "deviceState": "Received",
+    "date": "2025-06-15T21:02:45"
+  },
+  {
+    "ticketNumber": "3DT5V8YHVJGQ46GP",
+    "deviceType": "Smartphone",
+    "customerName": "Hannah Richardson",
+    "customerEmail": "gibsonsophia@example.com",
+    "deviceState": "Received",
+    "date": "2025-08-15T10:40:05"
+  }
+]
