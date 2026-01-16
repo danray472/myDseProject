@@ -8,7 +8,7 @@ const usersConnection = mongoose.createConnection('mongodb+srv://danray472:dsePr
 
 usersConnection.on('connected', () => {
   console.log("Users database connected successfully!");
-}); 
+});
 
 usersConnection.on('error', (err) => {
   console.error("Users database connection error:", err);
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-const User = mongoose.model('User', userSchema);
+const User = usersConnection.model('User', userSchema);
 
 
 const router = express.Router();
@@ -48,7 +48,14 @@ router.post('/login', async (req, res) => {
       expiresIn: '1hr', // Token expiration time
     });
 
-    res.status(200).json({ token });
+    res.status(200).json({
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Internal server error' });
@@ -76,6 +83,39 @@ router.post('/register', async (req, res) => {
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+// Me route
+// Me route
+router.get('/me', async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1]; // Bearer <token>
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+
+    // Use environment variable or fallback to match logic in index.js
+    const secret = process.env.JWT_SECRET || 'MySuperSecretKeyForJWTTokenGeneration123!@#';
+
+    let decoded;
+    try {
+      decoded = jwt.verify(token, secret);
+    } catch (err) {
+      console.error('JWT Verify Error:', err.message);
+      return res.status(401).json({ message: 'Invalid token signature' });
+    }
+
+    const user = await User.findById(decoded.id).select('-password');
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error('Auth /me error:', error);
+    res.status(500).json({ message: 'Server check failed' });
   }
 });
 

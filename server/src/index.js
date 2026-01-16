@@ -6,9 +6,9 @@ import deviceRoutes from './deviceRoutes.js';
 import authRoutes from './authRoutes.js'; // Import authRoutes
 import path from 'path';
 import dotenv from 'dotenv';
-
-dotenv.config();
-
+ 
+dotenv.config();   
+ 
 const app = express();
 const port = process.env.PORT || 5000; // Use environment variable for port
 
@@ -32,7 +32,7 @@ if (!process.env.JWT_SECRET) {
 
 // Serve static files from the React app
 app.use(express.static(path.join(path.resolve(), 'build')));
-
+ 
 // API Routes
 app.use('/devices', deviceRoutes);
 app.use('/auth', authRoutes); // Mount authRoutes under /auth URL prefix
