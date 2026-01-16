@@ -1,118 +1,200 @@
 /* Card.css */
 
-/* Styles for the card */
+/* Main container for cards */
+.card-container {
+  max-height: calc(92vh - 70px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Grid layout for device list */
+.device-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Modern card styling */
 .card {
-  background-color: #f9f9f9;
-  border: 1px solid deeppink;
-  border-radius: 20px; 
-  padding: 10px;
-  margin: 12px; 
-  transition: box-shadow 0.3s;
-  width: 200px;
-  height: auto;
-  box-shadow: 0 4px 6px rgba(244, 138, 208, 0.5); 
+  background: var(--background-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px var(--shadow-light);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  border-color: #366e72; 
-  transition: box-shadow 0.3s ease; 
+  box-shadow: 0 4px 12px var(--shadow-medium);
+  transform: translateY(-2px);
+  border-color: var(--border-medium);
 }
 
-
-/* Container holding the cards */
-.card-container {
-  max-height: calc(92vh - 70px); /* Set maximum height to 80% of viewport height minus footer height */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
-
-}
-
-.device-list{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    width: 140px; 
-    height: max-content; 
-    font-size: 10px; 
-  }
-  .card-line{
-    width: auto;
-    height: auto;
-  }
-  .card-container{
-    max-height: 88vh;
-    overflow-y: auto;
-
-    
-  }
-
-}
-
-.card-line{
-  box-shadow: 0 8px 10px rgba(244, 138, 208, 0.8), 0 -5px 10px rgba(247, 245, 245, 0.3);
-  padding: 6px;
-  border-radius: 14px;
-}
-
+/* Remove nested card-line and card-container styling */
 .card-line {
-
-  /* Add transition for smooth effect */
-  transition: box-shadow 0.3s ease;
-
-  /* Set initial shadow (without border) */
-  box-shadow: 0 4px 5px rgba(244, 138, 208, 0.8), 0 4px 5px rgba(175, 20, 141, 0.8);
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .card-line:hover {
-  /* Adjust shadow on hover */
-  box-shadow: 0 -4px 10px rgba(196, 53, 150, 0.8), 0 8px 10px rgba(227, 97, 171, 0.8); /* White shadow at the top, black shadow at the bottom */
+  box-shadow: none;
 }
 
-
-
-
-/* Styles for the modal container */
-.modal-container {
-  position: 'fixed';
-  top: 50%; 
-  left: 50%; 
-  
-  z-index: 1000; 
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 8px; 
-  padding: ''; 
-  box-shadow: 0 4px 6px rgba(2, 2, 2, 0.5); 
-  height: auto;
-  
+/* Card content styling */
+.card .card-container {
+  padding: 0;
+  max-height: none;
+  overflow: visible;
 }
 
-.device-state{
-  font-weight: 900;
-}
-
-.ticket-no{
-  font-weight: 1000;
-}
-
-.device-text{
-  font-weight: bold;
-}
-
-.edit-button-div{
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
-.delete-container:hover .delete-icon {
-  color: red;
+.card-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
 }
 
+.card-text-state {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
+}
 
+/* Icon styling */
+.card-title svg,
+.card-text svg,
+.card-text-state svg {
+  color: var(--text-muted);
+  font-size: 16px;
+}
 
+/* Text styling */
+.ticket-no {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.device-text {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.device-state {
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+/* Edit button container styling */
+.edit-button-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  gap: 12px;
+}
+
+/* Modern edit button styling */
+.modern-edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modern-edit-btn:hover {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: var(--background-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 117, 252, 0.3);
+}
+
+.modern-edit-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.modern-edit-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* Modal container styling */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px var(--shadow-dark), 0 10px 10px -5px var(--shadow-medium);
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .device-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-container {
+    padding: 16px;
+  }
+
+  .card-title,
+  .card-text,
+  .card-text-state {
+    font-size: 13px;
+  }
+
+  .card-title svg,
+  .card-text svg,
+  .card-text-state svg {
+    font-size: 14px;
+  }
+}

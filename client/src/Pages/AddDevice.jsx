@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import api from '../api';
 import { useSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
-import './modal.css';
-import { FaArrowLeft } from 'react-icons/fa';
+import {
+  FaSave,
+  FaTicketAlt,
+  FaLaptopMedical,
+  FaUser,
+  FaEnvelope
+} from 'react-icons/fa';
+import './AddDevice.css';
 
 const AddDevice = ({ onClose }) => {
   const [deviceInfo, setDeviceInfo] = useState({
@@ -11,7 +17,7 @@ const AddDevice = ({ onClose }) => {
     deviceType: '',
     customerName: '',
     customerEmail: '',
-    deviceState: 'In-repair', // Default state
+    deviceState: 'In-repair',
   });
   const [loading, setLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -43,68 +49,105 @@ const AddDevice = ({ onClose }) => {
       });
   };
 
-  const handleBackButtonClick = () => {
-    navigate('/Home');
-  };
-
   return (
-    <div className="add-device-container">
-      <div className="modal-content">
-        {onClose && (
-          <button className="back-button" onClick={onClose}>
-            <FaArrowLeft /> Back
-          </button>
-        )}
-        <h2>Add New Device</h2>
-        <form onSubmit={handleSaveDevice} className="add-device-form">
-          <div className="form-group">
-            <label>Ticket Number:</label>
-            <input
-              type="text"
-              name="ticketNumber"
-              value={deviceInfo.ticketNumber}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-          </div>
-          <div className="form-group">
-            <label>Device Type:</label>
-            <input
-              type="text"
-              name="deviceType"
-              value={deviceInfo.deviceType}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-          </div>
-          <div className="form-group">
-            <label>Customer Name:</label>
-            <input
-              type="text"
-              name="customerName"
-              value={deviceInfo.customerName}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-          </div>
-          <div className="form-group">
-            <label>Customer Email:</label>
-            <input
-              type="email"
-              name="customerEmail"
-              value={deviceInfo.customerEmail}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-          </div>
-          <button 
-            type="submit" 
-            disabled={loading} 
-            className="submit-button"
-          >
-            {loading ? 'Saving...' : 'Save Device'}
-          </button>
-        </form>
+    <div className="home-dashboard">
+      <header className="page-header-compact">
+        <div className="page-header-text">
+          <h2 className="page-title">Add Device</h2>
+          <p className="page-subtitle">Create a new service ticket for the inventory.</p>
+        </div>
+      </header>
+
+      <div className="add-device-wrapper">
+        <div className="modern-form-card">
+          <form onSubmit={handleSaveDevice} className="add-device-form">
+            <div className="form-row">
+              <div className="modern-form-group">
+                <label className="modern-label">
+                  <FaTicketAlt className="label-icon" /> Ticket Number
+                </label>
+                <div className="modern-input-wrapper">
+                  <input
+                    type="text"
+                    name="ticketNumber"
+                    value={deviceInfo.ticketNumber}
+                    onChange={handleInputChange}
+                    className="modern-input"
+                    placeholder="e.g. TKT-12345"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="modern-form-group">
+                <label className="modern-label">
+                  <FaLaptopMedical className="label-icon" /> Device Type
+                </label>
+                <div className="modern-input-wrapper">
+                  <input
+                    type="text"
+                    name="deviceType"
+                    value={deviceInfo.deviceType}
+                    onChange={handleInputChange}
+                    className="modern-input"
+                    placeholder="Laptop, Phone, etc."
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="modern-form-group">
+              <label className="modern-label">
+                <FaUser className="label-icon" /> Customer Name
+              </label>
+              <div className="modern-input-wrapper">
+                <input
+                  type="text"
+                  name="customerName"
+                  value={deviceInfo.customerName}
+                  onChange={handleInputChange}
+                  className="modern-input"
+                  placeholder="Full name of customer"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="modern-form-group">
+              <label className="modern-label">
+                <FaEnvelope className="label-icon" /> Customer Email
+              </label>
+              <div className="modern-input-wrapper">
+                <input
+                  type="email"
+                  name="customerEmail"
+                  value={deviceInfo.customerEmail}
+                  onChange={handleInputChange}
+                  className="modern-input"
+                  placeholder="email@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-footer">
+              <button
+                type="submit"
+                disabled={loading}
+                className="premium-save-button"
+              >
+                {loading ? (
+                  'Saving...'
+                ) : (
+                  <>
+                    <FaSave className="save-icon" /> Save Device
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

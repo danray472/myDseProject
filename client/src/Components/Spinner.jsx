@@ -1,18 +1,44 @@
 import React from 'react';
-import { CircleLoader } from 'react-spinners';
+import { motion } from 'framer-motion';
+import './Spinner.css';
 
-const MyLoader = () => {
+const Spinner = () => {
   return (
-    <div className="loader-container">
-      <div style={{marginBottom: '50%'}}></div>
-      <CircleLoader color="#4CAF50" loading={true} size={100} />
+    <div className="spinner-container">
+      <div className="premium-ping-loader">
+        {/* Expanding rings */}
+        {[0, 1, 2].map((index) => (
+          <motion.div
+            key={index}
+            className="ping-circle"
+            initial={{ scale: 0.8, opacity: 0.5 }}
+            animate={{
+              scale: [1, 2.5],
+              opacity: [0.5, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: index * 0.6,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+        {/* Solid Core */}
+        <motion.div
+          className="ping-core"
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
     </div>
   );
-}
+};
 
-export default MyLoader;
-
-
-/* react ronders
- BarLoader, BeatLoader, BounceLoader, CircleLoader, ClimbingBoxLoader, ClipLoader, ClockLoader, DotLoader, FadeLoader, GridLoader, HashLoader, MoonLoader, PacmanLoader, PropagateLoader, PuffLoader, PulseLoader, RingLoader, RiseLoader, RotateLoader, ScaleLoader, SkewLoader, SquareLoader, SyncLoader)
-*/
+export default Spinner;

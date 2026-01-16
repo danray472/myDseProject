@@ -3,68 +3,82 @@
 .modal-content {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 8px 16px rgba(0, 0, 0, 0.2); /* Adjust the shadow values as needed */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 8px 16px rgba(0, 0, 0, 0.2);
+  /* Adjust the shadow values as needed */
   padding: 20px;
   width: 400px;
   max-width: 90%;
   margin: 0 auto;
 }
 
-  
-  /* Close Button */
-  .close {
-    color: #aaa;
-    cursor: pointer;
-    font-size: 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  /* Form Fields */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  input[type='text'] {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
 
-  input[type='text']:hover {
-    border: solid deeppink;
-  }
+/* Close Button */
+.close {
+  color: #aaa;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input[type='text'] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+input[type='text']:hover {
+  border: solid var(--secondary-blue);
+}
 
 
-  /* Define the button style */
+/* Define the button style */
 .submit-button {
-  background-color: #4CAF50; /* Green background color */
-  border: none; /* Remove border */
-  color: white; /* White text color */
-  padding: 15px 32px; /* Padding */
-  text-align: center; /* Center text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Display as inline block */
-  font-size: 16px; /* Font size */
-  margin: 4px 2px; /* Margin */
-  cursor: pointer; /* Cursor pointer */
-  border-radius: 12px; /* Rounded corners */
-  position: relative; /* Relative position */
-  overflow: hidden; /* Hide overflow */
+  background-color: #4CAF50;
+  /* Green background color */
+  border: none;
+  /* Remove border */
+  color: white;
+  /* White text color */
+  padding: 15px 32px;
+  /* Padding */
+  text-align: center;
+  /* Center text */
+  text-decoration: none;
+  /* Remove underline */
+  display: inline-block;
+  /* Display as inline block */
+  font-size: 16px;
+  /* Font size */
+  margin: 4px 2px;
+  /* Margin */
+  cursor: pointer;
+  /* Cursor pointer */
+  border-radius: 12px;
+  /* Rounded corners */
+  position: relative;
+  /* Relative position */
+  overflow: hidden;
+  /* Hide overflow */
 }
 
 /* Define the glow effect */
@@ -75,26 +89,28 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+  background-color: rgba(255, 255, 255, 0.5);
+  /* White with 50% opacity */
   border-radius: 50%;
   animation: glowing 2s linear infinite;
 }
 
-.email-input{
+.email-input {
   width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.email-input:hover{
-  border: solid deeppink;
+.email-input:hover {
+  border: solid var(--secondary-blue);
 }
 
 
 /* Define the hover effect */
 .submit-button:hover::before {
-  background-color: rgba(255, 255, 255, 0.2); /* White with 20% opacity */
+  background-color: rgba(255, 255, 255, 0.2);
+  /* White with 20% opacity */
 }
 
 /* Define the glow animation */
@@ -103,13 +119,13 @@
     opacity: 0;
     transform: scale(0.5);
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: scale(2);
   }
 }
-
-

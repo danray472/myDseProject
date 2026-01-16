@@ -1,69 +1,68 @@
-h2{
-    color: deeppink
+h2 {
+  color: var(--primary-green);
 }
 
 
 .login-container {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .login-container h2 {
-    text-align: center;
-  }
-  
-  .login-container input[type="email"],
-  .login-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-  }
-  
-  .login-container input[type="email"]:hover,
-  .login-container input[type="password"]:hover {
-    border-color: deeppink;
-  }
-  
-  .login-container input[type="email"]:focus,
-  .login-container input[type="password"]:focus {
-    outline: none;
-    border-color: deepskyblue;
-  }
-  
-  .login-container button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .login-container button[type="submit"]:hover {
-    background-color: deeppink;
-  }
-  
-  .login-container p {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .login-container p a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .login-container p a:hover {
-    text-decoration: underline;
-    color: deepskyblue;
-  }
-  
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.login-container input[type="email"]:hover,
+.login-container input[type="password"]:hover {
+  border-color: var(--primary-green);
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+}
+
+.login-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: var(--primary-green-light);
+}
+
+.login-container p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-container p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+  color: var(--secondary-blue);
+}

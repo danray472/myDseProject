@@ -1,37 +1,16 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Header from '../Components/Header';
-import SearchBar from '../Components/SearchBar';
-import { NavLink, useLocation } from 'react-router-dom';
-import Footer from '../Components/Footer';
+import React, { useState, useEffect } from 'react';
 import api from '../api';
-import './Home.css';
-import MobileMenu from '../Components/MobileMenu';
+import SearchBar from '../Components/SearchBar';
 import InRepairDevicesCard from '../Components/InrepairDevicesCard.jsx';
+import './Home.css';
 
-
-
-function InRepair(){
-
-  const [showMenu, setShowMenu] = useState(false);
-  const [activeLink, setActiveLink] = useState(0);
+function InRepair() {
   const [searchTerm, setSearchTerm] = useState('');
-  const location = useLocation();
   const [completedCount, setCompletedCount] = useState(0)
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
   };
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
-  useEffect(() => {
-    const currentPath = location.pathname;
-    const currentIndex = links.findIndex(link => link.to === currentPath);
-    setActiveLink(currentIndex);
-  }, [location]);
 
   useEffect(() => {
     const fetchCompletedDevices = async () => {
@@ -46,56 +25,23 @@ function InRepair(){
     fetchCompletedDevices();
   }, []);
 
-  const links = [
-    { to: '/AllDevices', text: 'All-devices'},
-    { to: '/InRepair', text: 'In-repair' },
-    { to: '/CompletedDevices', text: 'Completed-devices' },
-    { to: '/ReceivedDevices', text: 'Received-devices' },
-    { to: '/AddDevice', text: 'Add-device' },
-    { to: '/RemovedDevices', text: 'Trash Bin' }
-  ];
-
-  
   return (
-    <div>
-      <div className="container">
-        <Header />
-        {/* Render links with the header */}
-        <ul className="desktop">
-          {links.map((link, index) => (
-            <li key={index}>
-                <NavLink
-                to={link.to}
-                className="desktop-link"
-                style={{
-                  backgroundColor: activeLink === index ? 'deeppink' : 'transparent',
-                  padding: '8px',
-                  borderRadius: '10px'
-                }}
-              >
-                {link.text}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-        {/* Render mobile menu */}
-        <div className="mobile-menu" onClick={toggleMenu}>
-          ☰
+    <div className="home-dashboard">
+      <header className="page-header-compact">
+        <div className="page-header-text">
+          <h2 className="page-title">In Repair</h2>
+          <p className="page-subtitle">Devices currently being serviced.</p>
         </div>
-        <div className="search-bar">
-          <SearchBar onSearch={handleSearch}/>
+        <div className="page-header-search">
+          <SearchBar onSearch={handleSearch} />
         </div>
-      </div>
-      <h4 className='head'>total in-repear devices:{completedCount}</h4>
+      </header>
 
-  <InRepairDevicesCard searchTerm={searchTerm}/>
-
-     {/* Render MobileMenu component */}
-     {showMenu && <MobileMenu links={links} onClose={toggleMenu} />}
-      {/* Render Footer */}
-      <Footer classNmae="footer" />
+      <section className="device-feed">
+        <InRepairDevicesCard searchTerm={searchTerm} />
+      </section>
     </div>
-)
+  );
 }
 
 export default InRepair;

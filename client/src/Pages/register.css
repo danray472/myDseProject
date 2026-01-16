@@ -1,70 +1,70 @@
-h2{
-    color: deeppink
+h2 {
+  color: var(--primary-green);
 }
+
 .signup-container {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .signup-container h2 {
-    text-align: center;
-  }
-  
-  .signup-container input[type="text"],
-  .signup-container input[type="email"],
-  .signup-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-  }
-  
-  .signup-container input[type="text"]:hover,
-  .signup-container input[type="email"]:hover,
-  .signup-container input[type="password"]:hover {
-    border-color: deeppink;
-  }
-  
-  .signup-container input[type="text"]:focus,
-  .signup-container input[type="email"]:focus,
-  .signup-container input[type="password"]:focus {
-    outline: none;
-    border-color: deepskyblue;
-  }
-  
-  .signup-container button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .signup-container button[type="submit"]:hover {
-    background-color: deeppink;
-  }
-  
-  .signup-container p {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .signup-container p a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .signup-container p a:hover {
-    text-decoration: underline;
-    color: deepskyblue;
-  }
-  
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-container h2 {
+  text-align: center;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.signup-container input[type="text"]:hover,
+.signup-container input[type="email"]:hover,
+.signup-container input[type="password"]:hover {
+  border-color: var(--primary-green);
+}
+
+.signup-container input[type="text"]:focus,
+.signup-container input[type="email"]:focus,
+.signup-container input[type="password"]:focus {
+  outline: none;
+  border-color: var(--secondary-blue);
+}
+
+.signup-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-container button[type="submit"]:hover {
+  background-color: var(--primary-green-light);
+}
+
+.signup-container p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-container p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-container p a:hover {
+  text-decoration: underline;
+  color: var(--secondary-blue);
+}

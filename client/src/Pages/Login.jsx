@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
-import api from '../api';
+
 import { useSnackbar } from 'notistack';
 import { useNavigate, Link } from 'react-router-dom';
 import './login.css'; // Import CSS for login form
 
+import { useAuth } from '../AuthProvider';
+import '../Components/Spinner.css';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth(); // Get login from context
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await api.post('/auth/login', { email, password });
-      console.log('Login successful:', response.data);
+      // Use the login function from AuthContext which handles API calls and state updates
+      await login({ email, password });
       enqueueSnackbar('Login successful', { variant: 'success' });
-      // Redirect to another page after successful login
-      navigate('/Home'); // Change the destination page as needed
+      // navigate('/Home'); -- Removed to let App.js handle the state change redirect
     } catch (error) {
-      console.error('Login error:', error.response.data);
-      enqueueSnackbar('Login error: ' + error.response.data.message, { variant: 'error' });
+      console.error('Login error:', error);
+      const errorMsg = error.response?.data?.message || 'Login failed';
+      enqueueSnackbar('Login error: ' + errorMsg, { variant: 'error' });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,7 +38,9 @@ const Login = () => {
       <form onSubmit={handleLogin}>
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+          {loading ? <div className="mini-spinner" style={{ width: '18px', height: '18px', borderTopColor: 'white', marginTop: 0 }}></div> : 'Login'}
+        </button>
       </form>
       <p>Don't have an account? <Link to="/register">Signup</Link></p> {/* Link to the signup page */}
     </div>

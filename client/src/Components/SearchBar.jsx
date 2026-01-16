@@ -21,17 +21,16 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-bar">
+      {/* Search Icon on the left */}
+      <div className="search-icon" onClick={handleSearch} onKeyDown={handleKeyPress} tabIndex={0}>
+        <FontAwesomeIcon icon={faSearch} />
+      </div>
       <input
         type="text"
         value={searchTerm}
         onChange={handleChange}
         onKeyPress={handleKeyPress} // Trigger search on Enter key press
-        placeholder="Search..."
       />
-      {/* Glassy icon with pointer cursor on hover */}
-      <div className="search-icon" onClick={handleSearch} onKeyDown={handleKeyPress} tabIndex={0}>
-        <FontAwesomeIcon icon={faSearch} />
-      </div>
     </div>
   );
 };

@@ -1,0 +1,165 @@
+/* Modern Add Device Styles */
+
+.add-device-wrapper {
+    margin: 0 auto;
+    max-width: 650px;
+    width: 100%;
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modern-form-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--slate-100);
+}
+
+.add-device-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.modern-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.modern-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--slate-700);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-icon {
+    color: var(--primary-green);
+    font-size: 1rem;
+}
+
+.modern-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.modern-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--slate-50);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: var(--slate-900);
+    transition: all 0.2s ease;
+}
+
+.modern-input:focus {
+    outline: none;
+    background: white;
+    border-color: var(--primary-green-light);
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+    transform: translateY(-1px);
+}
+
+.modern-input:hover:not(:focus) {
+    background: #f1f5f9;
+}
+
+.modern-input::placeholder {
+    color: var(--slate-400);
+}
+
+.form-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--slate-100);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.premium-save-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 2rem;
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.3);
+}
+
+.premium-save-button:hover:not(:disabled) {
+    background: var(--primary-green-light);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 20px -5px rgba(27, 67, 50, 0.4);
+}
+
+.premium-save-button:active:not(:disabled) {
+    transform: translateY(0) scale(0.98);
+}
+
+.premium-save-button:disabled {
+    background: var(--slate-400);
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Icons in buttons animate on hover */
+.premium-save-button:hover .save-icon {
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modern-form-card {
+        padding: 1.5rem;
+    }
+
+    .premium-save-button {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
-import { AuthProvider } from './Components/AuthProvider'
+import { AuthProvider } from './AuthProvider'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
