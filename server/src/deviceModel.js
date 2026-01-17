@@ -26,8 +26,16 @@ const deviceSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  }
-});
+  },
+  statusLogs: [{
+    status: String,
+    note: String,
+    timestamp: {
+      type: Date,
+      default: Date.now
+    }
+  }]
+}, { timestamps: true });
 
 const Device = mongoose.model('Device', deviceSchema);
 
