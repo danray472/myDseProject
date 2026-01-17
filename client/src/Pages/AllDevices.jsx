@@ -27,7 +27,7 @@ function AllDevices() {
 
 
   return (
-    <div className="home-dashboard">
+    <div className="home-dashboard page-container">
       <header className="page-header-compact">
         <div className="page-header-text">
           <h2 className="page-title">All Devices</h2>

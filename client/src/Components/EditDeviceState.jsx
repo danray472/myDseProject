@@ -7,12 +7,11 @@ import { FiSave, FiX } from 'react-icons/fi';
 
 const EditDevice = ({ device, onClose }) => {
   const [editedDevice, setEditedDevice] = useState({
-    deviceState: device.deviceState
+    deviceState: device.deviceState,
+    note: ''
   });
   const [loading, setLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +26,8 @@ const EditDevice = ({ device, onClose }) => {
         setLoading(false);
         enqueueSnackbar('Device status updated successfully', { variant: 'success' });
         onClose();
+        // Force reload so history/analytics update immediately
+        window.location.reload();
       })
       .catch((error) => {
         setLoading(false);
@@ -55,19 +56,34 @@ const EditDevice = ({ device, onClose }) => {
         </select>
       </div>
 
+      <div className="form-group">
+        <label className="form-label" htmlFor="note">
+          Status Note (Optional)
+        </label>
+        <textarea
+          id="note"
+          className="form-textarea"
+          name="note"
+          value={editedDevice.note}
+          onChange={handleInputChange}
+          placeholder="Enter details about this status update..."
+          rows="3"
+        />
+      </div>
+
       <div className="modal-button-group">
-        <button 
-          type="button" 
-          className="modal-btn modal-btn-secondary" 
+        <button
+          type="button"
+          className="modal-btn modal-btn-secondary"
           onClick={onClose}
           disabled={loading}
         >
           <FiX />
           Cancel
         </button>
-        <button 
-          className="modal-btn modal-btn-primary" 
-          type="submit" 
+        <button
+          className="modal-btn modal-btn-primary"
+          type="submit"
           disabled={loading}
         >
           {loading ? (

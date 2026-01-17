@@ -3,24 +3,41 @@
 .home-dashboard {
   max-width: 1400px;
   margin: 0 auto;
+  padding-top: 0;
 }
 
-.dashboard-header {
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0.2rem;
-  z-index: 100;
-  width: 96%;
-  margin: 0.2rem auto 0.25rem auto;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 0.7rem 2rem;
-  border-radius: 50px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: var(--transition);
+.welcome-banner {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-green), var(--action-green));
+}
+
+.welcome-text {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.welcome-text .highlight {
+  color: var(--primary-green);
+  position: relative;
 }
 
 .page-title {
@@ -38,23 +55,33 @@
 
 /* Existing styles... */
 
+/* Add padding for pages with fixed headers */
+.home-dashboard {
+  padding-top: 0;
+}
+
+.page-container {
+  padding-top: 60px;
+}
+
 /* Compact Page Header */
 .page-header-compact {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0.2rem;
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
   z-index: 100;
-  width: 96%;
-  margin: 0.2rem auto 0.25rem auto;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
   padding: 0.6rem 2rem;
-  border-radius: 50px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg) 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 1px rgba(255, 255, 255, 0.8) inset;
   border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top: none;
   flex-wrap: wrap;
   gap: 1rem;
   transition: var(--transition);
@@ -82,10 +109,58 @@
   .page-header-compact {
     flex-direction: column;
     align-items: stretch;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Account for mobile header in Layout */
+    z-index: 800;
+    padding: 0.8rem 1rem;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   }
 
   .page-header-text {
     text-align: left;
+  }
+
+  .dashboard-header {
+    display: none;
+  }
+
+  .welcome-banner {
+    padding: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .welcome-text {
+    font-size: 1.5rem;
+  }
+
+  .search-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust padding for mobile to accommodate the fixed glass header */
+  .page-container {
+    padding-top: 220px !important;
+    /* Increased to ensure clear space above the first card on mobile */
+  }
+
+  .home-dashboard:not(.page-container) {
+    padding-top: 1.5rem !important;
+    /* Dashboard has its own banner, doesn't need huge padding */
   }
 }
 
@@ -278,22 +353,7 @@
   padding-left: 1rem;
 }
 
-@media (max-width: 768px) {
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-wrapper {
-    width: 100%;
-    max-width: none;
-  }
-
-  .status-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* Search Bar Styling - Global */
 /* Search Bar Styling - Global */
 /* Search Bar Styling - Input Group Layout */
 .search-bar {

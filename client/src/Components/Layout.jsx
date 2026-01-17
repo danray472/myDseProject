@@ -14,11 +14,11 @@ const Layout = ({ children }) => {
     };
 
     // Mobile specific title based on route
-    const getPageTitle = () => {
-        const path = location.pathname;
-        if (path === '/Home' || path === '/') return 'Dashboard';
-        return path.replace('/', '').replace(/([A-Z])/g, ' $1').trim();
-    };
+    // const getPageTitle = () => {
+    //     const path = location.pathname;
+    //     if (path === '/Home' || path === '/') return 'Dashboard';
+    //     return path.replace('/', '').replace(/([A-Z])/g, ' $1').trim();
+    // };
 
     const navLinks = [
         { to: '/Home', text: 'Dashboard' },
@@ -48,6 +48,7 @@ const Layout = ({ children }) => {
 
                 <main className="main-content">
                     {children}
+                    <div className="scroll-spacer"></div>
                 </main>
             </div>
 

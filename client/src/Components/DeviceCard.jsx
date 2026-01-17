@@ -4,7 +4,7 @@ import SingleDeviceCard from './SingleDeviceCard'; // Import the SingleDeviceCar
 import './cards.css';
 import Spinner from './Spinner'; // Import the Spinner component
 
-const DeviceList = ({ searchTerm }) => {
+const DeviceList = ({ searchTerm, limit }) => {
   const [devices, setDevices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredDevices, setFilteredDevices] = useState([]);
@@ -24,12 +24,21 @@ const DeviceList = ({ searchTerm }) => {
   }, []);
 
   useEffect(() => {
-    const filtered = devices.filter(device =>
-      device.customerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      device.ticketNumber.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredDevices(filtered);
-  }, [searchTerm, devices]);
+    const filtered = devices
+      .filter(device =>
+        device.customerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        device.ticketNumber.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .sort((a, b) => {
+        // Use updatedAt if available, otherwise fallback to date
+        const dateA = new Date(a.updatedAt || a.date);
+        const dateB = new Date(b.updatedAt || b.date);
+        return dateB - dateA;
+      });
+
+    const displayed = limit ? filtered.slice(0, limit) : filtered;
+    setFilteredDevices(displayed);
+  }, [searchTerm, devices, limit]);
 
   return (
     <div className="card-container">

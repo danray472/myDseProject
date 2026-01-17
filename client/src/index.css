@@ -30,7 +30,7 @@
   --text-muted: var(--slate-400);
 
   /* Backgrounds */
-  --bg-body: var(--slate-50);
+  --bg-body: #e8f5e9;
   --bg-card: #ffffff;
   --bg-sidebar: var(--primary-green);
 

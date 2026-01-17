@@ -1,55 +1,101 @@
+/* EditDeviceState.css */
 
-
-.select{
-    font-size: large;
-    border-radius: 8px;
-    
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem;
 }
 
-.select:hover{
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-select,
+.form-textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    background: white;
+}
+
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
     cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
-
-.divide{
-    padding: 10%;
+.modal-btn-secondary {
+    background: var(--slate-100);
+    color: var(--text-secondary);
 }
 
-.header{
- text-align: center;
+.modal-btn-secondary:hover {
+    background: var(--slate-200);
 }
 
-label{
-    margin: auto;
+.modal-btn-primary {
+    background: var(--primary-green);
+    color: white;
 }
 
-.button{
-    font-size: large;
-    padding: 4px;
-    margin: 6px;
-    border-radius: 10px;
-    cursor: pointer;
-
-}
-.button:hover{
-    background-color: aqua;
-    box-shadow: 0 4px 6px rgba(138, 230, 244, 0.5);
+.modal-btn-primary:hover {
+    background: var(--primary-green-light);
+    transform: translateY(-1px);
 }
 
-.back-button{
-    padding: 15px;
-    padding-top: 10px;
-    transition: transform 0.2sec ease-in-out
+.modal-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.back-button:hover{
-    background-color: none;
-    cursor: pointer;
-    transform: scale(1.2);
+.loading-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
 }
 
-
-
-
-
-
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

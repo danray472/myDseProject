@@ -1,7 +1,7 @@
 // SingleDeviceCardDelete.js
 import React from 'react';
 import { FaTicketAlt, FaMobileAlt, FaUser, FaEnvelope, FaCalendarAlt, FaTrash } from 'react-icons/fa'; // Import required icons
-import './cards.css'; 
+import './cards.css';
 
 const SingleDeviceCardDelete = ({ device, onDelete }) => {
   const handleDelete = () => {
@@ -21,15 +21,15 @@ const SingleDeviceCardDelete = ({ device, onDelete }) => {
           <p className="card-text"><FaCalendarAlt /> Date: <span className='device-text'>{new Date(device.date).toLocaleDateString()}</span></p> {/* Display the date */}
         </div>
         <div className='delete-container'>
-         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={handleDelete}>
-      <span style={{ marginRight: '5px', color: 'black' }}>
-      <FaTrash className="delete-icon" />
-      </span>
-        <span style={{ color: 'black', textDecoration: 'none' }}>Delete</span>
-      </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={handleDelete}>
+              <span style={{ marginRight: '5px', color: 'black' }}>
+                <FaTrash className="delete-icon" />
+              </span>
+              <span style={{ color: 'black', textDecoration: 'none' }}>Delete</span>
+            </div>
           </div>
-          </div>
+        </div>
 
 
 

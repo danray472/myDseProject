@@ -1,26 +1,48 @@
+/* Layout.css - Nuke all scroll traps and force global scrolling */
+
+html,
+body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+}
+
 .layout {
-    display: flex;
+    display: block !important;
+    /* Force block to prevent flexbox scroll locks */
+    width: 100%;
     min-height: 100vh;
     background-color: var(--bg-body);
 }
 
 .main-content-wrapper {
-    flex: 1;
     margin-left: 260px;
-    /* Sidebar width */
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     transition: margin-left 0.3s ease;
+    display: block !important;
+    overflow: visible !important;
+    position: relative;
+    /* Ensure sticky positioning works within this container */
 }
 
 .main-content {
-    flex: 1;
-    padding: 2rem;
-    overflow-x: hidden;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    display: block !important;
+    overflow: visible !important;
 }
 
-/* Mobile Header - Hidden on Desktop */
+/* This is the magic fix for the bottom cut-off */
+.scroll-spacer {
+    height: 250px !important;
+    width: 100%;
+    display: block !important;
+    clear: both !important;
+    background: transparent;
+}
+
+/* Rest of the UI remains the same */
 .mobile-header {
     display: none;
     background-color: var(--primary-green);
@@ -29,8 +51,10 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: var(--shadow-md);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 900;
 }
 
@@ -73,17 +97,21 @@
     width: 40px;
 }
 
-/* Response Breakpoints */
 @media (max-width: 768px) {
     .main-content-wrapper {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     .mobile-header {
-        display: flex;
+        display: flex !important;
     }
 
     .main-content {
-        padding: 1rem;
+        padding: 0 1rem 1rem 1rem !important;
+        /* Padding top is handled by individual page containers in Home.css */
+    }
+
+    .scroll-spacer {
+        height: 150px !important;
     }
 }

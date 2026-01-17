@@ -5,7 +5,7 @@ import SingleDeviceCard from './SingleDeviceCard';
 import './cards.css';
 import Spinner from './Spinner';
 
-const CompletedDeviceCard = ({ searchTerm, completedCount }) => { // Receive completedCount as prop
+const CompletedDeviceCard = ({ searchTerm }) => {
   const [completed, setCompleted] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredDevices, setFilteredDevices] = useState([]);
@@ -35,10 +35,10 @@ const CompletedDeviceCard = ({ searchTerm, completedCount }) => { // Receive com
   return (
     <div className="card-container">
       <div className='device-list'>
-        {loading ? <Spinner/> : (
-        filteredDevices.map(device => (
-          <SingleDeviceCard key={device._id} device={device} />
-        )))}
+        {loading ? <Spinner /> : (
+          filteredDevices.map(device => (
+            <SingleDeviceCard key={device._id} device={device} />
+          )))}
       </div>
     </div>
   );

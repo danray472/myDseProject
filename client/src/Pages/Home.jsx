@@ -6,7 +6,8 @@ import DeviceCard from '../Components/DeviceCard';
 import { useAuth } from '../AuthProvider';
 import './Home.css';
 import '../Components/Spinner.css';
-import { FaUserCircle, FaTools, FaCheckCircle, FaTrash, FaBoxOpen, FaClipboardList } from 'react-icons/fa';
+import { FaUserCircle, FaTools, FaCheckCircle, FaTrash, FaBoxOpen, FaClipboardList, FaChartLine } from 'react-icons/fa';
+import AnalyticsDashboard from '../Components/AnalyticsDashboard';
 
 function Home() {
   const { user } = useAuth();
@@ -42,9 +43,9 @@ function Home() {
   });
   const [loadingStats, setLoadingStats] = useState(true);
 
-  const handleSearch = (searchTerm) => {
-    setSearchTerm(searchTerm);
-  };
+  // const handleSearch = (searchTerm) => {
+  //   setSearchTerm(searchTerm);
+  // };
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -77,18 +78,18 @@ function Home() {
 
   return (
     <div className="home-dashboard">
-      <header className="dashboard-header">
+      <section className="welcome-banner">
         <div className="admin-profile-section">
           <div className="admin-avatar">
             <FaUserCircle />
           </div>
           <div className="admin-info">
-            <h2 className="admin-name">{currentUser?.username || 'Admin'}</h2>
+            <h1 className="welcome-text">Welcome back, <span className="highlight">{currentUser?.username || 'Admin'}</span></h1>
             <p className="admin-email">{currentUser?.email || (user?.email) || 'admin@electrorenew.com'}</p>
             <span className="admin-role">Administrator</span>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Modern Status Overview Table/Cards */}
       <section className="status-overview">
@@ -158,9 +159,14 @@ function Home() {
         </div>
       </section>
 
+      <section className="analytics-section">
+        <h3 className="section-title"><FaChartLine /> Performance Analytics</h3>
+        <AnalyticsDashboard />
+      </section>
+
       <section className="device-feed">
         <h3 className="section-title">Recent Activity Feed</h3>
-        <DeviceCard searchTerm={searchTerm} />
+        <DeviceCard searchTerm={searchTerm} limit={6} />
       </section>
     </div>
   );
