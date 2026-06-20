@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 // Connect to MongoDB for users
-const usersConnection = mongoose.createConnection('mongodb+srv://danray472:dseProject@dseproject.csx9lbj.mongodb.net/DseProject?retryWrites=true&w=majority');
+const usersConnection = mongoose.createConnection('mongodb+srv://danray472:danray472@dseproject.csx9lbj.mongodb.net/?appName=DseProject');
 
 usersConnection.on('connected', () => {
   console.log("Users database connected successfully!");
